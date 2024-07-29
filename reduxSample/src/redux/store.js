@@ -1,6 +1,11 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./reducers/index";
+import asyncFuctionMiddleware from "./reducers/middlewares/asyncFuctionMiddleware";
 
-const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const composEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer,
+  composEnhancers(applyMiddleware(asyncFuctionMiddleware)));
 
 export default store;
