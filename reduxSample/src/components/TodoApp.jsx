@@ -1,6 +1,6 @@
 import { useState } from "react";
 const TodoApp = (props) => {
-  const { todoItems, addTodo, removeTodo, removeAll, triggerAsyncFuction } = props;
+  const { todoItems, addTodo, removeTodo, removeAll, triggerAsyncFuction, fetchTodo } = props;
   const [newTodo, setNewTodo] = useState('');
   return (
     <div>
@@ -38,6 +38,7 @@ const TodoApp = (props) => {
           })
         });
       }}>비동기 함수 테스트</button>
+      <button onClick={fetchTodo}>서버에서 할 일 목록 받아오기</button>
     </div>
   );
 };

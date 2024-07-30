@@ -8,8 +8,8 @@ const ACTION_TYPE_REMOVE_ALL = "my-app/todo/REMOVE_ALL";
 const initialState = [];
 
 export default function todoReducer(state = initialState, action) {
-  console.log(action.name);
-  console.log(action.text);
+  // console.log(action.name);
+  // console.log(action.text);
   switch (action.type) {
     case ACTION_TYPE_ADD_TODO:
       return state.concat(action.text);
