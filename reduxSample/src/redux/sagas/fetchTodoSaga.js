@@ -14,7 +14,7 @@ function* fetchTodos() {
       //   '서버로부터 받아온 할일 2',
       //   '서버로부터 받아온 할일 3',
       // ]
-      `서버로부터 받아온 할 일  ${new Date().toLocaleTimeString()}`
+      [`서버로부터 받아온 할 일  ${new Date().toLocaleTimeString()}`]
     );
 
     yield put(fetchTodosSucceeded(data));
