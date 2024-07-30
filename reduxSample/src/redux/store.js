@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./reducers/index";
-import asyncFuctionMiddleware from "./reducers/middlewares/asyncFuctionMiddleware";
+// import asyncFuctionMiddleware from "./reducers/middlewares/asyncFuctionMiddleware";
+// import thunk from 'redux-thunk';
+import { thunk as thunkMiddleware } from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
 
@@ -10,7 +12,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  composEnhancers(applyMiddleware(asyncFuctionMiddleware, sagaMiddleware))
+  composEnhancers(applyMiddleware(thunkMiddleware, sagaMiddleware))
 );
 
 sagaMiddleware.run(rootSaga);
