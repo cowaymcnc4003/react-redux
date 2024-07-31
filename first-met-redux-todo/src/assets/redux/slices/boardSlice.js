@@ -17,11 +17,11 @@ const boardSlice = createSlice({
       });
     },
     deleteBoard: (state, action) => {
-      const tartgetBoardId = action.payload;
+      const targetBoardId = action.payload;
       return {
         ...state,
         boards: state.boards.filter((board) => {
-          return board.id !== tartgetBoardId;
+          return board.id !== targetBoardId;
         })
       };
     },

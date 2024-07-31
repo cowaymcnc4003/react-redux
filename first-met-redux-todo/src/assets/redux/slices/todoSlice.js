@@ -9,32 +9,33 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
-      const { boardId: tartgetBoardId, todo: newTodo } = action.payload;
-
-      if (!state.boardTodosMap[tartgetBoardId]) {
-        state.boardTodosMap[tartgetBoardId] = [];
+      const { boardId: targetBoardId, todo: newTodo } = action.payload;
+      console.log(targetBoardId);
+      if (!state.boardTodosMap[targetBoardId]) {
+        console.log('1');
+        state.boardTodosMap[targetBoardId] = [];
       }
 
-      state.boardTodosMap[tartgetBoardId].push({
-        id: state.boardTodosMap[tartgetBoardId].length + 1,
+      state.boardTodosMap[targetBoardId].push({
+        id: state.boardTodosMap[targetBoardId].length + 1,
         title: newTodo,
         isFinished: false,
       });
     },
     toggleFinishTodo: (state, action) => {
-      const { boardId: tartgetBoardId, todoId: tartgetTodoId } = action.payload;
+      const { boardId: targetBoardId, todoId: targetTodoId } = action.payload;
 
-      const targetTodo = state.boardTodosMap[tartgetBoardId].find((todo) => {
-        return todo.id === tartgetBoardId;
+      const targetTodo = state.boardTodosMap[targetBoardId].find((todo) => {
+        return todo.id === targetTodoId;
       });
 
-      tartgetTodoId.isFinished = !targetTodo.isFinished;
+      targetTodo.isFinished = !targetTodo.isFinished;
     },
     deleteTodo: (state, action) => {
-      const { boardId: tartgetBoardId, todoId: tartgetTodoId } = action.payload;
+      const { boardId: targetBoardId, todoId: targetTodoId } = action.payload;
 
-      state.boardTodosMap[tartgetBoardId] = state.boardTodosMap[tartgetBoardId].filter((todo) => {
-        return todo.id !== tartgetTodoId;
+      state.boardTodosMap[targetBoardId] = state.boardTodosMap[targetBoardId].filter((todo) => {
+        return todo.id !== targetTodoId;
       });
     },
     deleteBoardTodos: (state, action) => {
