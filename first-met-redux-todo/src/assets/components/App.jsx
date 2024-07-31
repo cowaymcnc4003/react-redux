@@ -4,6 +4,7 @@ import BoardList from './board/BoardList';
 import BoardMenu from './board/BoardMenu';
 import TodoMenu from './todo/TodoMenu';
 import TodoList from './todo/TodoList';
+import AppBar from './AppBar';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -28,6 +29,7 @@ const App = () => {
 
   return (
     <Wrapper>
+      <AppBar />
       <ContentContainer>
         <BoardContainer>
           <BoardList />
