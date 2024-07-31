@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   boards: [],
-  seletedBoardId: null,
+  selectedBoardId: null,
 }
 
 const boardSlice = createSlice({
@@ -26,7 +26,7 @@ const boardSlice = createSlice({
       };
     },
     selectBoard: (state, action) => {
-      state.selectBoardId = action.payload;
+      state.selectedBoardId = action.payload;
     },
     resetBoard: () => {
       return initialState;
