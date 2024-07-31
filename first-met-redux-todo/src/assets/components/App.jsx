@@ -25,6 +25,7 @@ const TodoContainer = styled.div`
 
 const App = () => {
   const isBoardSelected = useSelector((state) => !!state.board.selectedBoardId);
+
   return (
     <Wrapper>
       <ContentContainer>
